@@ -1,0 +1,18 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "mythic_ascension:block/ritual_bowl"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "mythic_ascension:item/ritual_bowl/ritual_bowl_icon"
+    },
+    "ground": {
+      "parent": "mythic_ascension:item/ritual_bowl/ritual_bowl_icon"
+    },
+    "fixed": {
+      "parent": "mythic_ascension:item/ritual_bowl/ritual_bowl_icon"
+    }
+  }
+}

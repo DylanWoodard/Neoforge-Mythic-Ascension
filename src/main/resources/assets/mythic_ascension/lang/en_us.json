@@ -1,0 +1,69 @@
+{
+  "creativetab.mythic_ascension.magic_implements": "Magic Implements",
+  "creativetab.mythic_ascension.magic_reagents": "Magic Reagents",
+
+  "item.mythic_ascension.raw_mithral": "Raw Mithral",
+  "item.mythic_ascension.mithral_ingot": "Mithral Ingot",
+
+  "item.mythic_ascension.silver_ingot": "Silver Ingot",
+
+  "item.mythic_ascension.chalk_dust": "Chalk Dust",
+
+  "item.minecraft.netherite_ingot": "Adamantine Ingot",
+  "item.minecraft.netherite_sword": "Adamantine Sword",
+  "item.minecraft.netherite_helmet": "Adamantine Helmet",
+  "item.minecraft.netherite_chestplate": "Adamantine Chestplate",
+  "item.minecraft.netherite_leggings": "Adamantine Leggings",
+  "item.minecraft.netherite_boots": "Adamantine Boots",
+  "item.minecraft.netherite_pickaxe": "Adamantine Pickaxe",
+  "item.minecraft.netherite_axe": "Adamantine Axe",
+  "item.minecraft.netherite_shovel": "Adamantine Shovel",
+  "item.minecraft.netherite_hoe": "Adamantine Hoe",
+  "block.minecraft.netherite_block": "Block of Adamantine",
+
+  "item.minecraft.netherite_scrap": "Adamantite Scrap",
+
+  "item.minecraft.netherite_upgrade_smithing_template": "Adamantine Upgrade",
+
+  "item.minecraft.smithing_template.netherite_upgrade.additions_slot_description": "Add Adamantine Ingot",
+  "item.minecraft.smithing_template.netherite_upgrade.ingredients": "Adamantine Ingot",
+
+  "item.minecraft.cauldron": "Basin",
+  "block.minecraft.cauldron": "Basin",
+  "block.minecraft.lava_cauldron": "Basin",
+  "block.minecraft.powder_snow_cauldron": "Basin",
+  "block.minecraft.water_cauldron": "Basin",
+
+  "block.mythic_ascension.mithral_block": "Mithral Block",
+
+  "block.mythic_ascension.mithral_ore": "Mithral Ore",
+  "block.mythic_ascension.mithral_deepslate_ore": "Deepslate Mithral Ore",
+
+  "block.mythic_ascension.ritual_bowl": "Copper Ritual Bowl",
+
+  "entity.minecraft.villager.mythic_ascension.occultist": "Occultist",
+
+  "trim_material.minecraft.netherite": "Adamantine Material",
+
+  "upgrade.minecraft.netherite_upgrade": "Adamantine Upgrade",
+
+  "advancements.mythic_ascension.blasting_rod_advancement.title": "Watch Where You Point that Thing!",
+  "advancements.mythic_ascension.blasting_rod_advancement.description": "Obtain a Blasting Rod",
+
+  "advancements.husbandry.netherite_hoe.description": "Use a Adamantine Ingot to upgrade a Hoe, and then reevaluate your life choices",
+  "advancements.husbandry.netherite_hoe.title": "Serious Dedication",
+
+  "advancements.nether.netherite_armor.title": "Dressed to Slay",
+  "advancements.nether.netherite_armor.description": "Get a full suit of Adamantine armor",
+
+  "stat.minecraft.fill_cauldron": "Basins Filled",
+  "stat.minecraft.use_cauldron": "Water Taken from Basin",
+
+  "subtitles.item.mythic_ascension.silver_bell_standard_ring": "Silver Bell Rings",
+  "subtitles.item.mythic_ascension.silver_bell_finality_ring": "Silver Bell Rings with Finality",
+
+  "subtitles.item.armor.equip_netherite": "Adamantine armor clanks",
+
+  "subtitles.block.pointed_dripstone.drip_lava_into_cauldron": "Lava drips into Basin",
+  "subtitles.block.pointed_dripstone.drip_water_into_cauldron": "Water drips into Basin"
+}

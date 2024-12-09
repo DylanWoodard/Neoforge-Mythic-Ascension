@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "mythic_ascension:occult_poi",
+      "required": false
+    }
+  ]
+}

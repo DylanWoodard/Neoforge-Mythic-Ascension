@@ -1,0 +1,14 @@
+{
+  "silver_bell_standard_ring": {
+    "subtitle": "subtitles.item.mythic_ascension.silver_bell_standard_ring",
+    "sounds": [
+      "mythic_ascension:silver_bell_standard_ring"
+    ]
+  },
+  "silver_bell_finality_ring": {
+    "subtitle": "subtitles.item.mythic_ascension.silver_bell_finality_ring",
+    "sounds": [
+      "mythic_ascension:silver_bell_finality_ring"
+    ]
+  }
+}
