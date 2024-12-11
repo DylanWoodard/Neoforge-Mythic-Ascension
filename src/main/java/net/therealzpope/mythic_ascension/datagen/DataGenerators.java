@@ -1,5 +1,8 @@
 package net.therealzpope.mythic_ascension.datagen;
 
+import com.klikli_dev.modonomicon.api.datagen.LanguageProviderCache;
+import com.klikli_dev.modonomicon.api.datagen.NeoBookProvider;
+import com.klikli_dev.modonomicon.datagen.EnUsProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -12,6 +15,7 @@ import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.therealzpope.mythic_ascension.MythicAscension;
+import net.therealzpope.mythic_ascension.datagen.book.DemoBook;
 
 import java.util.Collections;
 import java.util.List;
@@ -26,6 +30,21 @@ public class DataGenerators {
         PackOutput packOutput = generator.getPackOutput();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
+
+
+
+        //We use a language cache that the book provider can write into
+        var enUsCache = new LanguageProviderCache("en_us");
+        generator.addProvider(event.includeServer(), NeoBookProvider.of(event,
+                //Add our demo book sub provider to the book provider
+                new DemoBook(MythicAscension.MOD_ID, enUsCache))
+        );
+
+
+
+        //Important: lang provider needs to be added after the book provider, so it can read the texts added by the book provider out of the cache
+        generator.addProvider(event.includeClient(), new EnUsProvider(generator.getPackOutput(), enUsCache));
+
 
         generator.addProvider(event.includeServer(), new LootTableProvider(packOutput, Collections.emptySet(),
                 List.of(new LootTableProvider.SubProviderEntry(ModBlockLootTableProvider::new, LootContextParamSets.BLOCK)), lookupProvider));

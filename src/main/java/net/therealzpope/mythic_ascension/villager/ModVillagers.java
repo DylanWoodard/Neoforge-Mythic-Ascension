@@ -3,14 +3,13 @@ package net.therealzpope.mythic_ascension.villager;
 import com.google.common.collect.ImmutableSet;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.therealzpope.mythic_ascension.MythicAscension;
-import net.therealzpope.mythic_ascension.block.ModBlocks;
-import net.therealzpope.mythic_ascension.sound.ModSounds;
 
 public class ModVillagers {
     public static final DeferredRegister<PoiType> POI_TYPES =
@@ -24,8 +23,8 @@ public class ModVillagers {
 
     public static final Holder<VillagerProfession> OCCULTIST = VILLAGER_PROFESSIONS.register("occultist",
             () -> new VillagerProfession("occultist", holder -> holder.value() == OCCULT_POI.value(),
-                     holder -> holder.value() == OCCULT_POI.value(), ImmutableSet.of(), ImmutableSet.of(),
-                    ModSounds.SILVER_BELL_FINALITY_RING.get()));
+                    holder -> holder.value() == OCCULT_POI.value(), ImmutableSet.of(), ImmutableSet.of(),
+                    SoundEvents.AMETHYST_CLUSTER_PLACE));
 
     public static void register(IEventBus eventBus) {
         POI_TYPES.register(eventBus);

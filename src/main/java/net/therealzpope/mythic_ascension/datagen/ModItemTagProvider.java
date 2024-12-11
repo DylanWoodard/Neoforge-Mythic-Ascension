@@ -11,6 +11,7 @@ import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.therealzpope.mythic_ascension.MythicAscension;
 import net.therealzpope.mythic_ascension.item.ModItems;
+import net.therealzpope.mythic_ascension.util.ModTags;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
@@ -24,7 +25,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
         tag(ItemTags.BOOKSHELF_BOOKS)
                 .add(ModItems.SPELLBOOK.get());
-        /*tag(ModTags.Items.SHARP_IMPLEMENTS)
+
+        tag(ModTags.Items.SHARP_IMPLEMENTS)
                 .add(Items.WOODEN_SWORD)
                 .add(Items.WOODEN_AXE)
                 .add(Items.STONE_SWORD)
@@ -37,6 +39,6 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(Items.DIAMOND_AXE)
                 .add(Items.NETHERITE_SWORD)
                 .add(Items.NETHERITE_AXE)
-                .add(Items.TRIDENT);*/
+                .add(Items.TRIDENT);
     }
 }

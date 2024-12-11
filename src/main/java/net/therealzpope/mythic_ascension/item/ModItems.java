@@ -6,6 +6,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.therealzpope.mythic_ascension.MythicAscension;
 import net.therealzpope.mythic_ascension.item.custom.BlastingRodItem;
+import net.therealzpope.mythic_ascension.item.custom.Chalk;
 import net.therealzpope.mythic_ascension.item.custom.SilverBellItem;
 import net.therealzpope.mythic_ascension.item.custom.SpellbookItem;
 
@@ -18,6 +19,9 @@ public class ModItems {
     public static final DeferredItem<Item> CHALK_DUST = ITEMS.registerSimpleItem("chalk_dust");
 
     public static final DeferredItem<Item> SILVER_INGOT = ITEMS.registerSimpleItem("silver_ingot");
+
+    public static final DeferredItem<Item> CHALK = ITEMS.register("chalk",
+            () -> new Chalk(new Item.Properties().durability(64)));
 
     public static final DeferredItem<Item> BLASTING_ROD = ITEMS.register("blasting_rod",
             () -> new BlastingRodItem(new Item.Properties().durability(64)));
