@@ -70,9 +70,6 @@ public class TestChalkCircleBlock extends BaseEntityBlock {
             if (pLevel.getBlockEntity(pPos) instanceof TestChalkCircleBlockEntity testChalkCircleBlockEntity) {
                 Containers.dropContents(pLevel, pPos, testChalkCircleBlockEntity);
                 pLevel.updateNeighbourForOutputSignal(pPos, this);
-                if (testChalkCircleBlockEntity.isActive) {
-                    testChalkCircleBlockEntity.toggleTornado(pLevel, pPos);
-                }
             }
         }
         super.onRemove(pState, pLevel, pPos, pNewState, pMovedByPiston);
@@ -98,7 +95,11 @@ public class TestChalkCircleBlock extends BaseEntityBlock {
                     pPlayer.setItemInHand(InteractionHand.MAIN_HAND, stackInSlot);
                     testChalkCircleBlockEntity.setItem(slot, ItemStack.EMPTY); // Clear the slot
                     pLevel.playSound(pPlayer, pPos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 1f);
-                    testChalkCircleBlockEntity.toggleTornado(pLevel, pPos);
+                    return ItemInteractionResult.SUCCESS;
+                }
+
+                if (pStack.isEmpty() && stackInSlot.isEmpty()) {
+                    testChalkCircleBlockEntity.animateSummoning(pLevel, pPos);
                     return ItemInteractionResult.SUCCESS;
                 }
             }

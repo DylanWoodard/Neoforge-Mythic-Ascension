@@ -5,10 +5,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.therealzpope.mythic_ascension.MythicAscension;
-import net.therealzpope.mythic_ascension.item.custom.BlastingRodItem;
-import net.therealzpope.mythic_ascension.item.custom.Chalk;
-import net.therealzpope.mythic_ascension.item.custom.SilverBellItem;
-import net.therealzpope.mythic_ascension.item.custom.SpellbookItem;
+import net.therealzpope.mythic_ascension.item.custom.*;
 
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MythicAscension.MOD_ID);
@@ -31,6 +28,9 @@ public class ModItems {
 
     public static final DeferredItem<Item> SILVER_BELL = ITEMS.register("silver_bell",
             () -> new SilverBellItem(new Item.Properties().stacksTo(1)));
+
+    public static final DeferredItem<Item> PORTAL_PLACER = ITEMS.register("portal_placer",
+            () -> new PortalPlacerItem(new Item.Properties().stacksTo(1)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

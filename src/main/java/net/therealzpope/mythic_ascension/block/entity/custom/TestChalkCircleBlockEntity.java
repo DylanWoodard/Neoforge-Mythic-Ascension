@@ -1,5 +1,7 @@
 package net.therealzpope.mythic_ascension.block.entity.custom;
 
+import mod.chloeprime.aaaparticles.api.common.AAALevel;
+import mod.chloeprime.aaaparticles.api.common.ParticleEmitterInfo;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
@@ -8,6 +10,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Container;
@@ -20,15 +23,20 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
+import net.therealzpope.mythic_ascension.MythicAscension;
 import net.therealzpope.mythic_ascension.block.entity.ModBlockEntities;
+import org.intellij.lang.annotations.Identifier;
 import org.joml.Vector3f;
 
 import javax.annotation.Nullable;
+import java.sql.Time;
 import java.util.List;
 
 public class TestChalkCircleBlockEntity extends BlockEntity implements Container {
     private final NonNullList<ItemStack> inventory = NonNullList.withSize(3, ItemStack.EMPTY);
-    public boolean isActive = false;
+    private static final ParticleEmitterInfo SUMMONING = new ParticleEmitterInfo(ResourceLocation.fromNamespaceAndPath(MythicAscension.MOD_ID, "flame_pillar_test"));
+    private static final ParticleEmitterInfo OUTSIDER_SUMMONING_1 = new ParticleEmitterInfo(ResourceLocation.fromNamespaceAndPath(MythicAscension.MOD_ID, "outsider_black_hole"));
+    private static final ParticleEmitterInfo OUTSIDER_SUMMONING_2 = new ParticleEmitterInfo(ResourceLocation.fromNamespaceAndPath(MythicAscension.MOD_ID, "outsider_mist_explosion"));
     private float rotation = 0f;
     private float[] itemSpins = new float[3]; // Spin rotation for each item
     private float[] bobOffsets = new float[3]; // Store bobbing phases for three items
@@ -149,57 +157,11 @@ public class TestChalkCircleBlockEntity extends BlockEntity implements Container
         return entities.isEmpty() ? null : entities.get(0);
     }
 
-    public void toggleTornado(Level level, BlockPos blockPos) {
-        if (level.isClientSide) {
-            isActive = !isActive;
-
-            if (isActive) {
-                // Start a new thread to continuously spawn the vortex
-                new Thread(() -> {
-                    while (isActive) {
-                        createTornadoParticles(level, blockPos);
-                        try {
-                            Thread.sleep(50); // Controls the update rate of the particles
-                        } catch (InterruptedException e) {
-                            Thread.currentThread().interrupt();
-                        }
-                    }
-                }).start();
-
-                // Play continuous sound
-                level.playLocalSound(blockPos.getX() + 0.5, blockPos.getY(), blockPos.getZ() + 0.5, SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.BLOCKS, 1.5F, 1.2F, false);
-            }
-        }
-    }
-
-    private void createTornadoParticles(Level level, BlockPos blockPos) {
-        // Define the center and parameters of the tornado
-        Vec3 center = new Vec3(blockPos.getX() + 0.5, blockPos.getY() + 2, blockPos.getZ() + 0.5);
-        double radius = 1.5;
-        double height = 2.0;
-        int particleCount = 200; // Increased particle count for a denser effect
-        double angularVelocity = Math.PI * 2; // Full rotation per step
-
-        for (int i = 0; i < particleCount; i++) {
-            // Calculate the particle's vertical position and time-based rotation
-            double progress = (double) i / particleCount; // Ranges from 0 to 1
-            double y = center.y - (progress * height);
-
-            // Introduce violent spinning by using time-based animation
-            double time = System.currentTimeMillis() / 1000.0;
-            double angle = angularVelocity * time + progress * Math.PI * 8; // Rapid rotation
-            double xOffset = Math.cos(angle) * radius * (1 - progress);
-            double zOffset = Math.sin(angle) * radius * (1 - progress);
-
-            // Randomize velocity for a chaotic look
-            double velocityX = (Math.random() - 0.5) * 0.2;
-            double velocityY = 0.1 + (Math.random() * 0.1);
-            double velocityZ = (Math.random() - 0.5) * 0.2;
-
-            // Spawn the particle with velocity for chaotic movement
-            Vec3 particlePosition = new Vec3(center.x + xOffset, y, center.z + zOffset);
-            level.addParticle(ParticleTypes.END_ROD, particlePosition.x, particlePosition.y, particlePosition.z, velocityX, velocityY, velocityZ);
-        }
+    // Summoning animation here
+    public void animateSummoning(Level pLevel, BlockPos pPos) {
+//        AAALevel.addParticle(pLevel, SUMMONING.clone().position(pPos.getX() + 0.5d, pPos.getY() - 0.1, pPos.getZ() + 0.5d).scale(0.8f));
+        AAALevel.addParticle(pLevel, OUTSIDER_SUMMONING_1.clone().position(pPos.getX() + 0.5d, pPos.getY() + 1.5, pPos.getZ() + 0.5d).scale(0.6f));
+        AAALevel.addParticle(pLevel, OUTSIDER_SUMMONING_2.clone().position(pPos.getX() + 0.5d, pPos.getY() + 1.5, pPos.getZ() + 0.5d).scale(0.75f));
     }
 
     @Nullable

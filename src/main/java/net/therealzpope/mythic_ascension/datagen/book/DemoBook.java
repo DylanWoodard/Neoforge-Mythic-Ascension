@@ -1,17 +1,24 @@
+/*
+ * SPDX-FileCopyrightText: 2022 klikli-dev
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
 package net.therealzpope.mythic_ascension.datagen.book;
 
 import com.klikli_dev.modonomicon.api.datagen.ModonomiconLanguageProvider;
 import com.klikli_dev.modonomicon.api.datagen.SingleBookSubProvider;
 import com.klikli_dev.modonomicon.api.datagen.book.BookCommandModel;
 import com.klikli_dev.modonomicon.api.datagen.book.BookModel;
-import com.klikli_dev.modonomicon.datagen.book.demo.ConditionalCategory;
-import com.klikli_dev.modonomicon.datagen.book.demo.FeaturesCategory;
-import com.klikli_dev.modonomicon.datagen.book.demo.FormattingCategory;
-import com.klikli_dev.modonomicon.datagen.book.demo.IndexModeCategory;
-import com.klikli_dev.modonomicon.datagen.book.demo.features.ConditionRootEntry;
 import net.minecraft.resources.ResourceLocation;
+import net.therealzpope.mythic_ascension.datagen.book.demo.ConditionalCategory;
+import net.therealzpope.mythic_ascension.datagen.book.demo.FeaturesCategory;
+import net.therealzpope.mythic_ascension.datagen.book.demo.FormattingCategory;
+import net.therealzpope.mythic_ascension.datagen.book.demo.IndexModeCategory;
+import net.therealzpope.mythic_ascension.datagen.book.demo.features.ConditionRootEntry;
 
 public class DemoBook extends SingleBookSubProvider {
+
     public static final String ID = "demo";
 
     public DemoBook(String modid, ModonomiconLanguageProvider lang) {
@@ -34,7 +41,7 @@ public class DemoBook extends SingleBookSubProvider {
                 .withSuccessMessage("modonomicon.command.test_command2.success");
         this.add(commandEntryLinkCommand.getSuccessMessage(), "You got wheat, because clicking is cool!");
 
-        return book.withModel(ResourceLocation.parse("modonomicon:modonomicon_green"))
+        return book.withModel(ResourceLocation.parse("modnomicon:purple"))
                 .withBookTextOffsetX(5)
                 .withBookTextOffsetY(0) //no top offset
                 .withBookTextOffsetWidth(-5)
@@ -51,22 +58,23 @@ public class DemoBook extends SingleBookSubProvider {
     @Override
     protected void generateCategories() {
         //for the two big categories we use the category provider
-        var featuresCategory = this.add(new FeaturesCategory(this).generate());
-        var formattingCategory = this.add(new FormattingCategory(this).generate());
-
-        var conditionalCategory = this.add(new ConditionalCategory(this).generate())
-                .withCondition(this.condition().entryRead(this.modLoc(FeaturesCategory.ID, ConditionRootEntry.ID)));
-
+//        var featuresCategory = this.add(new FeaturesCategory(this).generate());
+//        var formattingCategory = this.add(new FormattingCategory(this).generate());
+//
+//        var conditionalCategory = this.add(new ConditionalCategory(this).generate())
+//                .withCondition(this.condition().entryRead(this.modLoc(FeaturesCategory.ID, ConditionRootEntry.ID)));
+//
         var indexModeCategory = this.add(new IndexModeCategory(this).generate());
     }
 
     @Override
     protected String bookName() {
-        return "Demo Book";
+        return "A Wizard's Ramblings";
     }
 
     @Override
     protected String bookTooltip() {
-        return "A book to showcase & test Modonomicon features.";
+        return "An old book, yellowing at the corners.  " +
+                "Still, it hums with a deep and ancient power...";
     }
 }

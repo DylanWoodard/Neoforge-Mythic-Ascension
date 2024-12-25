@@ -1,0 +1,92 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "mythic_ascension:item/blasting_rod/blasting_rod_model"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "mythic_ascension:item/blasting_rod/blasting_rod_icon"
+    },
+    "ground": {
+      "parent": "mythic_ascension:item/blasting_rod/blasting_rod_icon"
+    },
+    "fixed": {
+      "parent": "mythic_ascension:item/blasting_rod/blasting_rod_icon"
+    }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "mythic_ascension:blasting_rod": 1
+      },
+      "model": "mythic_ascension:item/blasting_rod/acacia/fire/blasting_rod_acacia_fire_default"
+    },
+    {
+      "predicate": {
+        "mythic_ascension:blasting_rod": 2
+      },
+      "model": "mythic_ascension:item/blasting_rod/bamboo/fire/blasting_rod_bamboo_fire_default"
+    },
+    {
+      "predicate": {
+        "mythic_ascension:blasting_rod": 3
+      },
+      "model": "mythic_ascension:item/blasting_rod/birch/fire/blasting_rod_birch_fire_default"
+    },
+    {
+      "predicate": {
+        "mythic_ascension:blasting_rod": 4
+      },
+      "model": "mythic_ascension:item/blasting_rod/cherry/fire/blasting_rod_cherry_fire_default"
+    },
+    {
+      "predicate": {
+        "mythic_ascension:blasting_rod": 5
+      },
+      "model": "mythic_ascension:item/blasting_rod/crimson/fire/blasting_rod_crimson_fire_default"
+    },
+    {
+      "predicate": {
+        "mythic_ascension:blasting_rod": 6
+      },
+      "model": "mythic_ascension:item/blasting_rod/dark_oak/fire/blasting_rod_dark_oak_fire_default"
+    },
+    {
+      "predicate": {
+        "mythic_ascension:blasting_rod": 7
+      },
+      "model": "mythic_ascension:item/blasting_rod/jungle/fire/blasting_rod_jungle_fire_default"
+    },
+    {
+      "predicate": {
+        "mythic_ascension:blasting_rod": 8
+      },
+      "model": "mythic_ascension:item/blasting_rod/mangrove/fire/blasting_rod_mangrove_fire_default"
+    },
+    {
+      "predicate": {
+        "mythic_ascension:blasting_rod": 9
+      },
+      "model": "mythic_ascension:item/blasting_rod/oak/fire/blasting_rod_oak_fire_default"
+    },
+    {
+      "predicate": {
+        "mythic_ascension:blasting_rod": 10
+      },
+      "model": "mythic_ascension:item/blasting_rod/pale_oak/fire/blasting_rod_pale_oak_fire_default"
+    },
+    {
+      "predicate": {
+        "mythic_ascension:blasting_rod": 11
+      },
+      "model": "mythic_ascension:item/blasting_rod/spruce/fire/blasting_rod_spruce_fire_default"
+    },
+    {
+      "predicate": {
+        "mythic_ascension:blasting_rod": 12
+      },
+      "model": "mythic_ascension:item/blasting_rod/warped/fire/blasting_rod_warped_fire_default"
+    }
+]
+}

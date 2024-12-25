@@ -92,6 +92,7 @@ public class MythicAscension {
     @EventBusSubscriber(modid = MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
         @SubscribeEvent
+        // Register our Block Entity Renderers
         public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
             event.registerBlockEntityRenderer(ModBlockEntities.RITUAL_BOWL_BE.get(), RitualBowlBlockEntityRenderer::new);
             event.registerBlockEntityRenderer(ModBlockEntities.TEST_CHALK_CIRCLE_BE.get(), TestChalkCircleBlockEntityRenderer::new);

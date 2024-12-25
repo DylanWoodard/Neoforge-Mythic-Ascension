@@ -31,6 +31,20 @@ repositories {
             includeGroup "com.klikli_dev"
         }
     }
+    maven {
+        url "https://cursemaven.com"
+    }
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "Modrinth"
+                url = "https://api.modrinth.com/maven"
+            }
+        }
+        filter {
+            includeGroup "maven.modrinth"
+        }
+    }
 }
 
 base {
@@ -150,6 +164,15 @@ dependencies {
     implementation ("com.klikli_dev:modonomicon-${minecraft_version}-neoforge:${modonomicon_version}"){transitive=false}
 
     implementation "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
+
+    // For my next trick, I will attempt to import Immersive Portals for (Neo)Forge!! For the third time...
+    implementation "maven.modrinth:zf4Szzx2:1xmqZRlz"
+    // Immersive Portals for (Neo)Forge requires Cloth Config API
+    implementation "maven.modrinth:9s6osm5g:izKINKFg"
+
+    implementation "curse.maven:aaa-particles-979809:5834277"
+    // Oops, I forgot that AAA Particles also needs Architectury...
+    implementation "curse.maven:architectury-api-419699:5786327"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

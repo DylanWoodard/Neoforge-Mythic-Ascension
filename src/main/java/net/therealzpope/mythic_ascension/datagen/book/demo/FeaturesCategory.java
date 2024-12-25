@@ -39,31 +39,31 @@ public class FeaturesCategory extends CategoryProvider {
 
     @Override
     protected void generateEntries() {
-        var multiblockEntry = this.add(new MultiblockEntry(this).generate("multiblock"));
+//        var multiblockEntry = this.add(new MultiblockEntry(this).generate("multiblock"));
 
         var conditionRootEntry = this.add(new ConditionRootEntry(this).generate('r'));
         //the advancement condition is set up in the entry provider
         var conditionAdvancementEntry = this.add(new ConditionAdvancementEntry(this).generate('a'));
 
         //the condition for the level 1 entry to depend on the root entry is set up here so we can access the entry. We could also do it in the entry provider and either hand over a reference, or use the ID as resource location to reference it
-        var conditionLevel1Entry = this.add(new ConditionLevel1Entry(this).generate('1'))
-                .withCondition(this.condition().entryRead(conditionRootEntry))
-                //here we use this.parent() to get access to the parent settings
-                .withParent(this.parent(conditionRootEntry).withLineReversed(true));
+//        var conditionLevel1Entry = this.add(new ConditionLevel1Entry(this).generate('1'))
+//                .withCondition(this.condition().entryRead(conditionRootEntry))
+//                //here we use this.parent() to get access to the parent settings
+//                .withParent(this.parent(conditionRootEntry).withLineReversed(true));
+//
+//        var conditionLevel2Entry = this.add(new ConditionLevel2Entry(this).generate('2'))
+//                .withCondition(this.condition().entryRead(conditionLevel1Entry))
+//                //here we want a default parent so we can just hand over the entry
+//                .withParent(conditionLevel1Entry);
 
-        var conditionLevel2Entry = this.add(new ConditionLevel2Entry(this).generate('2'))
-                .withCondition(this.condition().entryRead(conditionLevel1Entry))
-                //here we want a default parent so we can just hand over the entry
-                .withParent(conditionLevel1Entry);
-
-        var twoParentsEntry = this.add(new TwoParentEntry(this).generate('t'))
-                .showWhenAnyParentUnlocked(true)
-                .withParent(this.parent(conditionRootEntry).withLineReversed(true))
-                .withParent(conditionLevel2Entry)
-                .withCondition(this.condition().and(
-                        this.condition().entryRead(conditionRootEntry),
-                        this.condition().entryRead(conditionLevel2Entry)
-                ));
+//        var twoParentsEntry = this.add(new TwoParentEntry(this).generate('t'))
+//                .showWhenAnyParentUnlocked(true)
+//                .withParent(this.parent(conditionRootEntry).withLineReversed(true))
+//                .withParent(conditionLevel2Entry)
+//                .withCondition(this.condition().and(
+//                        this.condition().entryRead(conditionRootEntry),
+//                        this.condition().entryRead(conditionLevel2Entry)
+//                ));
 
         var recipeEntry = this.add(new RecipeEntry(this).generate('c'));
 
@@ -75,18 +75,18 @@ public class FeaturesCategory extends CategoryProvider {
 
         var emptyEntry = this.add(new EmptyPageEntry(this).generate('e'))
                 .withParent(spotlightEntry);
+//
+//        var commandEntry = this.add(new CommandEntry(this).generate('f'));
+//
+//        var entityEntry = this.add(new EntityEntry(this).generate('d'));
+//
+//        var imageEntry = new ImageEntry(this).generate('i');
+//        imageEntry.withParent(this.parent(emptyEntry));
 
-        var commandEntry = this.add(new CommandEntry(this).generate('f'));
-
-        var entityEntry = this.add(new EntityEntry(this).generate('d'));
-
-        var imageEntry = new ImageEntry(this).generate('i');
-        imageEntry.withParent(this.parent(emptyEntry));
-
-        var redirectEntry = this.add(new DemoRedirectEntry(this).generate('5'));
-
-        var customIconEntry = this.add(new CustomIconEntry(this).generate('g'))
-                .withParent(imageEntry);
+//        var redirectEntry = this.add(new DemoRedirectEntry(this).generate('5'));
+//
+//        var customIconEntry = this.add(new CustomIconEntry(this).generate('g'))
+//                .withParent(imageEntry);
     }
 
     @Override
