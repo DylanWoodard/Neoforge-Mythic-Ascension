@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "mythic_ascension:mithral_block"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "mythic_ascension:blocks/mithral_block"
+}

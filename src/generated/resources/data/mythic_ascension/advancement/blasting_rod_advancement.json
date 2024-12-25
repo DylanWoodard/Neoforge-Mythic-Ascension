@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:story/root",
+  "criteria": {
+    "craft_blasting_rod": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mythic_ascension:blasting_rod"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.mythic_ascension.blasting_rod_advancement.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "mythic_ascension:blasting_rod"
+    },
+    "title": {
+      "translate": "advancements.mythic_ascension.blasting_rod_advancement.title"
+    }
+  },
+  "requirements": [
+    [
+      "craft_blasting_rod"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  },
+  "sends_telemetry_event": true
+}
